@@ -1,7 +1,10 @@
 tag Results
+  prop personal
+  prop economic
+
   def render
     <self>
-      "Dunno. Maybe a monarchist"
+      "Dunno. Maybe a monarchist {personal} {economic}"
 
 let personal-questions = [
   "Government should not censor speech, press, media, or internet.",
@@ -21,34 +24,81 @@ let economic-questions = [
 
 tag Question
   prop question
+  prop answer
 
   def render
     <self>
       <h5>
         question
-      <button.yes>
-        "Agree"
-      <button.maybe>
-        "Maybe"
-      <button.no>
-        "Disagree"
+      if answer == "yes"
+        <div.answer.yes>
+          "Agree"
+      else if answer == "maybe"
+        <div.answer.maybe>
+          "Maybe"
+      else if answer == "no"
+        <div.answer.no>
+          "Disagree"
+      else
+        <div.buttons>
+          <button.yes :tap=(do trigger("answered", [question, "yes"]))>
+            "Agree"
+          <button.maybe :tap=(do trigger("answered", [question, "maybe"]))>
+            "Maybe"
+          <button.no :tap=(do trigger("answered", [question, "no"]))>
+            "Disagree"
 
-tag Quiz
-  def setup
-    @answers={}
+tag QuestionGroup
+  prop title
+  prop questions
+  prop answers
+
+  def onanswered(ev, args)
+    # Imba 2 will have proper destructuring
+    let q = args[0]
+    let a = args[1]
+    console.log("a", ev, q, a, answers)
+    answers[q] = a
 
   def render
     <self>
       <h2>
-        "Personal issues"
-      for q in personal-questions
-        <Question question=q>
-      <h2>
-        "Economic issues"
-      for q in economic-questions
-        <Question question=q>
+        title
+      for q in questions
+        <Question question=q answer=answers[q]>
 
-      <Results>
+tag Quiz
+  def setup
+    @personal = {}
+    @economic = {}
+
+  def everything_answered
+    Object.keys(@personal):length == 5 and Object.keys(@economic):length == 5
+
+  def personal_score
+    let score = 0
+    for q in personal-questions
+      if @personal[q] == "yes"
+        score += 20
+      else if @personal[q] == "maybe"
+        score += 10
+    score
+
+  def economic_score
+    let score = 0
+    for q in economic-questions
+      if @economic[q] == "yes"
+        score += 20
+      else if @economic[q] == "maybe"
+        score += 10
+    score
+
+  def render
+    <self>
+      <QuestionGroup questions=personal-questions title="Personal issues" answers=@personal>
+      <QuestionGroup questions=economic-questions title="Economic issues" answers=@economic>
+      if everything_answered
+        <Results personal=personal_score() economic=economic_score>
 
 tag App
   def render
