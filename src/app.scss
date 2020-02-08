@@ -76,17 +76,32 @@
 }
 .Results {
   svg {
-    height: 600px;
-    width: 600px;
+    height: 650px;
+    width: 650px;
+
+    text {
+      text-anchor: middle;
+      font-weight: bold;
+    }
+  }
+
+  circle {
+    fill: red;
+    stroke: black;
+    stroke-width: 1px;
   }
 
   .Grid {
     line {
       stroke: black;
-      stroke-width: 1px;
+      stroke-width: 0.1px;
+      color: #aaa;
     }
     line.thick {
-      stroke-width: 2px;
+      stroke-width: 0.5px;
+    }
+    line.outside {
+      stroke-width: 5px;
     }
   }
 }
