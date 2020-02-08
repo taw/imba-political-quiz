@@ -74,3 +74,19 @@
     color: #888;
   }
 }
+.Results {
+  svg {
+    height: 600px;
+    width: 600px;
+  }
+
+  .Grid {
+    line {
+      stroke: black;
+      stroke-width: 1px;
+    }
+    line.thick {
+      stroke-width: 2px;
+    }
+  }
+}

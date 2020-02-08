@@ -1,3 +1,30 @@
+tag Grid < svg:g
+  def render
+    <self>
+      <svg:line.thick x1=( 0 + 30 * 0) x2=( 300 + 30 * 0) y1=( 300 - 30 * 0) y2=(600 - 30 * 0)>
+      <svg:line       x1=( 0 + 30 * 1) x2=( 300 + 30 * 1) y1=( 300 - 30 * 1) y2=(600 - 30 * 1)>
+      <svg:line.thick x1=( 0 + 30 * 2) x2=( 300 + 30 * 2) y1=( 300 - 30 * 2) y2=(600 - 30 * 2)>
+      <svg:line       x1=( 0 + 30 * 3) x2=( 300 + 30 * 3) y1=( 300 - 30 * 3) y2=(600 - 30 * 3)>
+      <svg:line.thick x1=( 0 + 30 * 4) x2=( 300 + 30 * 4) y1=( 300 - 30 * 4) y2=(600 - 30 * 4)>
+      <svg:line       x1=( 0 + 30 * 5) x2=( 300 + 30 * 5) y1=( 300 - 30 * 5) y2=(600 - 30 * 5)>
+      <svg:line.thick x1=( 0 + 30 * 6) x2=( 300 + 30 * 6) y1=( 300 - 30 * 6) y2=(600 - 30 * 6)>
+      <svg:line       x1=( 0 + 30 * 7) x2=( 300 + 30 * 7) y1=( 300 - 30 * 7) y2=(600 - 30 * 7)>
+      <svg:line.thick x1=( 0 + 30 * 8) x2=( 300 + 30 * 8) y1=( 300 - 30 * 8) y2=(600 - 30 * 8)>
+      <svg:line       x1=( 0 + 30 * 9) x2=( 300 + 30 * 9) y1=( 300 - 30 * 9) y2=(600 - 30 * 9)>
+      <svg:line.thick x1=( 0 + 30 *10) x2=( 300 + 30 *10) y1=( 300 - 30 *10) y2=(600 - 30 *10)>
+
+      <svg:line.thick x1=( 0 + 30 * 0) x2=( 300 + 30 * 0) y1=( 300 + 30 * 0) y2=(  0 + 30 * 0)>
+      <svg:line       x1=( 0 + 30 * 1) x2=( 300 + 30 * 1) y1=( 300 + 30 * 1) y2=(  0 + 30 * 1)>
+      <svg:line.thick x1=( 0 + 30 * 2) x2=( 300 + 30 * 2) y1=( 300 + 30 * 2) y2=(  0 + 30 * 2)>
+      <svg:line       x1=( 0 + 30 * 3) x2=( 300 + 30 * 3) y1=( 300 + 30 * 3) y2=(  0 + 30 * 3)>
+      <svg:line.thick x1=( 0 + 30 * 4) x2=( 300 + 30 * 4) y1=( 300 + 30 * 4) y2=(  0 + 30 * 4)>
+      <svg:line       x1=( 0 + 30 * 5) x2=( 300 + 30 * 5) y1=( 300 + 30 * 5) y2=(  0 + 30 * 5)>
+      <svg:line.thick x1=( 0 + 30 * 6) x2=( 300 + 30 * 6) y1=( 300 + 30 * 6) y2=(  0 + 30 * 6)>
+      <svg:line       x1=( 0 + 30 * 7) x2=( 300 + 30 * 7) y1=( 300 + 30 * 7) y2=(  0 + 30 * 7)>
+      <svg:line.thick x1=( 0 + 30 * 8) x2=( 300 + 30 * 8) y1=( 300 + 30 * 8) y2=(  0 + 30 * 8)>
+      <svg:line       x1=( 0 + 30 * 9) x2=( 300 + 30 * 9) y1=( 300 + 30 * 9) y2=(  0 + 30 * 9)>
+      <svg:line.thick x1=( 0 + 30 *10) x2=( 300 + 30 *10) y1=( 300 + 30 *10) y2=(  0 + 30 *10)>
+
 tag Results
   prop personal
   prop economic
@@ -5,6 +32,9 @@ tag Results
   def render
     <self>
       "Dunno. Maybe a monarchist {personal} {economic}"
+
+      <svg:svg>
+        <Grid>
 
 let personal-questions = [
   "Government should not censor speech, press, media, or internet.",
